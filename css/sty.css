@@ -1,53 +1,37 @@
-/* 外链CSS魔改 */
+@import "//at.alicdn.com/t/font_3113985_zb6u27t0mq.css";   /* 导入阿里ico —— font-class类型 */
+/* 字体包。中文：Zhi Mang Xing 代码：JetBrains Mono、Fira Code、Roboto*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@450&family=JetBrains+Mono:wght@450&family=Roboto&family=Zhi+Mang+Xing&display=swap');
 
-/* 滚动条 */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* 1.文本字体设置 */
+/* 左上角标题，副标题（加weight没用） */
+a#site-name,
+span#subtitle{
+  font-family: 'Zhi Mang Xing',serif,monospace;
+  font-size: 1.15em;
 }
-
-::-webkit-scrollbar-track {
-  background-color: rgba(73, 177, 245, 0.2);
-  border-radius: 2em;
+/* 中间标题（加size没有） */
+h1#site-title{
+  font-family: 'Zhi Mang Xing',serif,monospace;
+  font-weight: 200;
 }
-
-::-webkit-scrollbar-thumb {
-  background-color: #49b1f5;
-  background-image: -webkit-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.4) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0.4) 75%,
-    transparent 75%,
-    transparent
-  );
-  border-radius: 2em;
+/* 依次是：作者名、座右铭下三个标签、三个标签对应的数字（这几个经过测试加size和weight没有） */
+.author-info__name,
+.headline,
+.length-num{
+  font-family: 'Zhi Mang Xing',serif,monospace;
 }
-
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
-
-::-moz-selection {
-  color: #fff;
-  background-color: #49b1f5;
+/* 依次是：文章名下第二行、文章文章名下第一行、文章标题、菜单栏、博客作者座右铭*/
+.meta-secondline,
+.meta-firstline,
+h1.post-title,
+div#menus,
+.author-info__description{
+  font-family: 'Zhi Mang Xing',serif,monospace;
+  font-size: 1.25em;
 }
 
 
-/* 鼠标样式 */
-body {
-    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),default;
-}
-a,
-img {
-    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),default;
-}
-
-
-/* 页脚footer */
-/* 渐变色滚动动画 */
+/* 2.页脚渐变色滚动动画 */
 @-webkit-keyframes Gradient {
     0% {
         background-position: 0 50%;
@@ -108,7 +92,28 @@ img {
 }
 
 
-/* 渐变色背景 */
+/* iconfont默认样式(使用SVG图标时要加这段代码) */
+svg.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+/* 3.页脚蝴蝶振翅动画 */
+.copyright svg{
+  animation:butterfly 1s linear infinite alternate;
+}
+@keyframes butterfly {
+  from {
+    transform:rotateY(70deg);
+  }
+  to {
+    transform:rotateY(0deg);
+  }
+}
+
+
+/* 4.渐变色背景 */
 #web_bg {
     background: -webkit-linear-gradient(
       0deg,
@@ -165,4 +170,106 @@ img {
       rgba(7, 179, 155, 0.1) 86%,
       rgba(109, 186, 130, 0.1) 100%
     );
+}
+
+
+/* 5.鼠标样式 */
+body,   /* 全局默认鼠标指针 */
+html{
+  cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),auto !important;
+}
+img,                    /* 悬停图片时的鼠标指针 */
+a:hover,                /* 选择链接标签时的鼠标指针 */
+input:hover,            /* 选中输入框时的鼠标指针 */
+button:hover,           /* 悬停按钮时的鼠标指针 */
+#footer-wrap a:hover,   /* 悬停页脚链接标签（例如页脚徽标）时的鼠标指针 */
+#pagination .page-number:hover,/* 悬停页码时的鼠标指针 */
+#nav .site-page:hover,  /* 悬停菜单栏时的鼠标指针 */
+#nav #site-name:hover,  /* 悬停左上角小标题 */
+#waifu #live2d:hover,   /* 悬停看板娘 */
+.iconfont,              /* 特指阿里ico(我一般将其作为带跳转的标签) */
+.fa-envelope{           /* 特指主页的邮件标签 */
+  cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),auto !important;
+}
+
+
+/* 6.滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(73, 177, 245, 0.2);
+  border-radius: 2em;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #49b1f5;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.4) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.4) 75%,
+    transparent 75%,
+    transparent
+  );
+  border-radius: 2em;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+::-moz-selection {
+  color: #fff;
+  background-color: #49b1f5;
+}
+
+
+/* 7.个人栏图标放大 */
+.iconfont {
+    /* 这两个是抗锯齿 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-github:before {
+  /* 修改颜色 */
+  /* color: blue; */
+  /* 修改大小 */
+  font-size: 23px;
+}
+.fa-envelope:before {
+  /* 修改颜色 */
+  /* color: blue; */
+  /* 修改大小 */
+  font-size: 21px;
+}
+.icon-bilibili-fill:before {
+  /* 修改颜色 */
+  /* color: blue; */
+  /* 修改大小 */
+  font-size: 24px;
+}
+.icon-csdn1-copy:before {
+  /* 修改颜色 */
+  /* color: blue; */
+  /* 修改大小 */
+  font-size: 22px;
+}
+.icon-QQyinle:before {
+  /* 修改颜色 */
+  /* color: blue; */
+  /* 修改大小 */
+  font-size: 26px;
+}
+.icon-gitee-fill-round:before {
+  /* 修改颜色 */
+  /* color: blue; */
+  /* 修改大小 */
+  font-size: 22px;
+}
+.icon-leetcode:before {
+  /* 修改颜色 */
+  /* color: blue; */
+  /* 修改大小 */
+  font-size: 22px;
 }
