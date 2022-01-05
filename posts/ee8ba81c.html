@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>刷题随笔 | 花裱の博客</title><meta name="keywords" content="随笔,刷题"><meta name="author" content="花裱"><meta name="copyright" content="花裱"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="踩坑记录12345671. 3&#x2F;2.0、1.0*3&#x2F;2 都可以是1.5。   但是3&#x2F;2*1.0不行，因为是先3&#x2F;2强制取整变成1后再*1.0变为1.0。   所以要注意先后顺序。   2. 做题时，先看看能不能采用即时处理。   如果想着先全部处理完再输出很可能超时，但如果是一边处理判断一边输出则不容易超时   https:&#x2F;&#x2F;blog.csdn.net&#x2F;RP123123123&#x2F;article&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刷题随笔">
+<meta property="og:url" content="https://dingzihang00.top/posts/ee8ba81c.html">
+<meta property="og:site_name" content="花裱の博客">
+<meta property="og:description" content="踩坑记录12345671. 3&#x2F;2.0、1.0*3&#x2F;2 都可以是1.5。   但是3&#x2F;2*1.0不行，因为是先3&#x2F;2强制取整变成1后再*1.0变为1.0。   所以要注意先后顺序。   2. 做题时，先看看能不能采用即时处理。   如果想着先全部处理完再输出很可能超时，但如果是一边处理判断一边输出则不容易超时   https:&#x2F;&#x2F;blog.csdn.net&#x2F;RP123123123&#x2F;article&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dingzihang00.top/img/bg8.jpg">
+<meta property="article:published_time" content="2022-01-02T11:22:36.000Z">
+<meta property="article:modified_time" content="2022-01-02T12:30:21.000Z">
+<meta property="article:author" content="花裱">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="刷题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dingzihang00.top/img/bg8.jpg"><link rel="shortcut icon" href="/img/ding.png"><link rel="canonical" href="https://dingzihang00.top/posts/ee8ba81c"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":250},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '刷题随笔',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-02 20:30:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/sty.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bookmark"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fab fa-envira"></i><span> 图库</span></a></li><li><a class="site-page child" href="/talk/"><i class="fa-fw far fa-comments"></i><span> 随言</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/bg8.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">花裱の博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-bookmark"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fab fa-envira"></i><span> 图库</span></a></li><li><a class="site-page child" href="/talk/"><i class="fa-fw far fa-comments"></i><span> 随言</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-info-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">刷题随笔<a class="post-edit-link" href="https://github.com/rplalala/BlogDemo/blob/main/_posts/刷题随笔.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-02T11:22:36.000Z" title="发表于 2022-01-02 19:22:36">2022-01-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-02T12:30:21.000Z" title="更新于 2022-01-02 20:30:21">2022-01-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="刷题随笔"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 3/2.0、1.0*3/2 都可以是1.5。</span><br><span class="line">   但是3/2*1.0不行，因为是先3/2强制取整变成1后再*1.0变为1.0。</span><br><span class="line">   所以要注意先后顺序。</span><br><span class="line">   </span><br><span class="line">2. 做题时，先看看能不能采用即时处理。</span><br><span class="line">   如果想着先全部处理完再输出很可能超时，但如果是一边处理判断一边输出则不容易超时</span><br><span class="line">   https://blog.csdn.net/RP123123123/article/details/122272967</span><br></pre></td></tr></table></figure>
+
+<h1 id="可以用-int数组-代替-HashMap-lt-Character-Integer-gt"><a href="#可以用-int数组-代替-HashMap-lt-Character-Integer-gt" class="headerlink" title="可以用 int数组 代替 HashMap&lt;Character,Integer&gt;"></a>可以用 int数组 代替 HashMap&lt;Character,Integer&gt;</h1><h2 id="常用于对字符串进行操作的算法题中，用来实现滑动窗口"><a href="#常用于对字符串进行操作的算法题中，用来实现滑动窗口" class="headerlink" title="常用于对字符串进行操作的算法题中，用来实现滑动窗口"></a>常用于对字符串进行操作的算法题中，用来实现滑动窗口</h2><p><strong>目的：</strong> 提高效率，也更便于操作value</p>
+<h2 id="为什么可以这样做？？"><a href="#为什么可以这样做？？" class="headerlink" title="为什么可以这样做？？"></a>为什么可以这样做？？</h2><p>因为字符型ascii码最高就到128，所以只要创建一个占据128内存的数组就行，所占空间少。<br>其次字符型可以根据ascii码转成int，此时数组的下标所对应的字符（通过ascii码）就是key，下标对应的值就是value。例如a[65]=5<br>相当于 key=’A’,value=5</p>
+<h1 id="判断一个数是否是整数"><a href="#判断一个数是否是整数" class="headerlink" title="判断一个数是否是整数"></a>判断一个数是否是整数</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断s是否是整数</span></span><br><span class="line"><span class="keyword">if</span>(s == (<span class="keyword">int</span>) s)&#123;</span><br><span class="line">    <span class="keyword">return</span> 整数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="判断素数"><a href="#判断素数" class="headerlink" title="判断素数"></a>判断素数</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断num是否是素数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">prime</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 1不是素数</span></span><br><span class="line">    <span class="keyword">if</span>(num &lt;= <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 关键：i &lt;= (int)Math.sqrt(num)</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= (<span class="keyword">int</span>)Math.sqrt(num); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(num % i == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="反转数字"><a href="#反转数字" class="headerlink" title="反转数字"></a>反转数字</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//反转数字，用来判断是否是回文数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(num &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        ans = ans*<span class="number">10</span> + (num%<span class="number">10</span>);</span><br><span class="line">        num = num/<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="浮点数取整"><a href="#浮点数取整" class="headerlink" title="浮点数取整"></a>浮点数取整</h1><ul>
+<li>Math.ceil(double n); //对浮点数向上取整</li>
+<li>Math.floor(double n); //对浮点数向下取整</li>
+<li>Math.round(double n); //对浮点数四舍五入取整，不够准确。例如：-11.5 -&gt; -11 </li>
+</ul>
+<h2 id="利用大数类进行准确的四舍五入"><a href="#利用大数类进行准确的四舍五入" class="headerlink" title="利用大数类进行准确的四舍五入"></a>利用大数类进行准确的四舍五入</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//对10.7进行四舍五入取整</span><br><span class="line">new BigDecimal(&quot;10.7&quot;).setScale(0,BigDecimal.ROUND_HALF_UP).intValue();</span><br></pre></td></tr></table></figure>
+
+<h1 id="求最大公约数和最小公倍数"><a href="#求最大公约数和最小公倍数" class="headerlink" title="求最大公约数和最小公倍数"></a>求最大公约数和最小公倍数</h1><ul>
+<li>最大公约数：比如说 15和12 的最大公约数 是 3</li>
+<li>最小公倍数：比如说 2 和 5 的最小公倍数 是 10</li>
+<li>最小公倍数 = a*b/a和b的最大公约数</li>
+</ul>
+<h2 id="最大公约数的实现-——-辗转相除法（欧几里得算法）"><a href="#最大公约数的实现-——-辗转相除法（欧几里得算法）" class="headerlink" title="最大公约数的实现 —— 辗转相除法（欧几里得算法）"></a>最大公约数的实现 —— 辗转相除法（欧几里得算法）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. c = a % b;</span><br><span class="line">2. 若 c == 0 ，则 b 是 a和b 的最大公约数</span><br><span class="line">3. 若 c != 0 ，则 令 a = b，b = c，再次执行第一步。</span><br><span class="line"></span><br><span class="line">若要求最小公倍数，则在求出最大公约数后，用 最小公倍数 = a*b/a和b的最大公约数</span><br></pre></td></tr></table></figure>
+
+<h2 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">GCD</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;      <span class="comment">//求最大公约数</span></span><br><span class="line">    <span class="keyword">int</span> t,c;</span><br><span class="line">    <span class="keyword">if</span>(a &lt; b)&#123;</span><br><span class="line">        t = a;</span><br><span class="line">        a = b;</span><br><span class="line">        b = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(a%b != <span class="number">0</span>)&#123;</span><br><span class="line">        c = a % b;</span><br><span class="line">        a = b;</span><br><span class="line">        b = c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="最小公倍数"><a href="#最小公倍数" class="headerlink" title="最小公倍数"></a>最小公倍数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">LCM</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123; <span class="comment">//求最小公倍数</span></span><br><span class="line">    <span class="keyword">return</span> a*b/GCD(a,b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四舍五入"><a href="#四舍五入" class="headerlink" title="四舍五入"></a>四舍五入</h1><ul>
+<li>Math.ceil(double n); //对浮点数向上取整</li>
+<li>Math.floor(double n); //对浮点数向下取整</li>
+<li>Math.round(double n); //对浮点数四舍五入取整，不够准确。例如：-11.5 -&gt; -11</li>
+</ul>
+<h2 id="利用大数类进行准确的四舍五入-1"><a href="#利用大数类进行准确的四舍五入-1" class="headerlink" title="利用大数类进行准确的四舍五入"></a>利用大数类进行准确的四舍五入</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//对10.7进行四舍五入取整</span><br><span class="line">new BigDecimal(&quot;10.7&quot;).setScale(0,BigDecimal.ROUND_HALF_UP).intValue();</span><br></pre></td></tr></table></figure>
+
+<h1 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h1><ol>
+<li>用Set判断是否已经存在，若存在则不进行操作</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">distinct</span><span class="params">(<span class="keyword">int</span>[] a)</span></span>&#123;</span><br><span class="line">    Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x : a)&#123;</span><br><span class="line">        <span class="keyword">if</span>(set.add(x))&#123;</span><br><span class="line">            System.out.println(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>用Stream流</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">distinct</span><span class="params">(<span class="keyword">int</span>[] a)</span></span>&#123;</span><br><span class="line">    List&lt;Integer&gt; alist = Arrays.stream(a).distinct().collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> x : alist)&#123;</span><br><span class="line">        System.out.println(x);    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="快速输入和快速输出-——-BufferedReader和-BufferWriter"><a href="#快速输入和快速输出-——-BufferedReader和-BufferWriter" class="headerlink" title="快速输入和快速输出 —— BufferedReader和 BufferWriter"></a>快速输入和快速输出 —— BufferedReader和 BufferWriter</h1><h2 id="输入-——-BufferedReader"><a href="#输入-——-BufferedReader" class="headerlink" title="输入 —— BufferedReader"></a>输入 —— BufferedReader</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader in = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in)); 实例化</span><br><span class="line">String/<span class="keyword">char</span>/<span class="keyword">int</span> s1 = in.read();     读入一个字符。可单独读入空格或回车，回车会留下来被下次读取接收（吸收一个\n留下一个\r）</span><br><span class="line">String s2 = in.readLine(); 读入一行，可读入空格。遇到回车结束，且回车会被舍弃，不会再被下次读取</span><br><span class="line">String[] ss = in.readLine().split(<span class="string">&quot; &quot;</span>); 将读入的一行字符串以空格分为字符串数组</span><br><span class="line">……</span><br><span class="line">in.close();  关闭流</span><br></pre></td></tr></table></figure>
+<p><strong>需要注意的是：</strong></p>
+<ul>
+<li>在windows中按一下回车键，一共有两个字符 “\n\r”，而read()只能读取一个字符所以如要用read来达到吸收回车的目的，需要用两个read();  如果用readLine()的话会将”\n\r”全部吸收 ， 所以只需要一个readLine()来吸收回车。</li>
+<li>由于是字符型，用read()读取整型时，读取0会显示其as码48，读取9以上的数就会出问题了。所以我们应该用readLine()来接收，再利用Integer.parseInt()转化为整型</li>
+</ul>
+<h2 id="输出-——-BufferWriter"><a href="#输出-——-BufferWriter" class="headerlink" title="输出 —— BufferWriter"></a>输出 —— BufferWriter</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">BufferedWriter out = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(System.out)); 实例化 </span><br><span class="line">out.write(x);</span><br><span class="line">out.write(<span class="string">&quot; &quot;</span>);</span><br><span class="line">out.write(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">out.write(x+<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">……</span><br><span class="line">out.flush();  在程序最后刷新一次即可，确保缓冲区的数据全部被输出</span><br><span class="line">out.close();  先刷新后关闭</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>需要注意的是：</strong></p>
+<ul>
+<li>write()不能直接输出int类型。因为BufferWriter是字符型流，直接用write(int a)  会输出其对应的ASCii码的字符 ,比如输出 65 会显示 A。可以通过write(String.valueOf(a)) 或 write(a+””)实现</li>
+</ul>
+<h2 id="记得在类声明后进行异常处理，throws-IOException"><a href="#记得在类声明后进行异常处理，throws-IOException" class="headerlink" title="记得在类声明后进行异常处理，throws IOException"></a>记得在类声明后进行异常处理，throws IOException</h2><h1 id="利用-String-format-格式化数据"><a href="#利用-String-format-格式化数据" class="headerlink" title="利用 String.format() 格式化数据"></a>利用 String.format() 格式化数据</h1><p>原理类似于System.out.printf();</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s1 = String.format(<span class="string">&quot;%.2f\n&quot;</span>,<span class="number">10.34567</span>);</span><br><span class="line">String s2 = String.format(<span class="string">&quot;你的名字是：%s\n&quot;</span>,<span class="string">&quot;丁梓航&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="求集合的交集、差集、并集"><a href="#求集合的交集、差集、并集" class="headerlink" title="求集合的交集、差集、并集"></a>求集合的交集、差集、并集</h1><h2 id="交集-——-retainAll"><a href="#交集-——-retainAll" class="headerlink" title="交集 —— retainAll()"></a>交集 —— retainAll()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">se1.retainAll(set2)    <span class="comment">//求set1和set2的交集，最终结果留在set1</span></span><br><span class="line">        </span><br><span class="line">set1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>&#125;，set2 = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">9</span>&#125;</span><br><span class="line">=&gt; set1 = &#123;<span class="number">1</span>,<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="差集-——-removeAll"><a href="#差集-——-removeAll" class="headerlink" title="差集 —— removeAll()"></a>差集 —— removeAll()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">se1.removeAll(set2)    <span class="comment">//求set1和set2的差集，最终结果留在set1</span></span><br><span class="line">        </span><br><span class="line">set1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>&#125;，set2 = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">9</span>&#125;</span><br><span class="line">=&gt; set1 = &#123;<span class="number">2</span>,<span class="number">7</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="并集-——-addAll"><a href="#并集-——-addAll" class="headerlink" title="并集 —— addAll()"></a>并集 —— addAll()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">se1.addAll(set2)    <span class="comment">//求set1和set2的并集，最终结果留在set1</span></span><br><span class="line">        </span><br><span class="line">set1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>&#125;，set2 = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">9</span>&#125;</span><br><span class="line">=&gt; set1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">花裱</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dingzihang00.top/posts/ee8ba81c.html">https://dingzihang00.top/posts/ee8ba81c.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://dingzihang00.top" target="_blank">花裱の博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a><a class="post-meta__tags" href="/tags/%E5%88%B7%E9%A2%98/">刷题</a></div><div class="post_share"><div class="social-share" data-image="/img/bg8.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/f77f8e26.html"><img class="prev-cover" src="/img/bg1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hexo+GitHub 实现域名配置（别被旧文章坑了）</div></div></a></div><div class="next-post pull-right"><a href="/posts/f96a58f3.html"><img class="next-cover" src="/img/bg6.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java基础随笔</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/f96a58f3.html" title="Java基础随笔"><img class="cover" src="/img/bg6.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-02</div><div class="title">Java基础随笔</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">花裱</div><div class="author-info__description">为之则易，不为则难</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/rplalala/rplalala.github.io"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/rplalala" target="_blank" title="Github"><i class="fab iconfont icon-github"></i></a><a class="social-icon" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=dingzihang00@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://gitee.com/ding-zihang" target="_blank" title="Gitee"><i class="fab iconfont icon-gitee-fill-round"></i></a><a class="social-icon" href="https://blog.csdn.net/RP123123123?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fab iconfont icon-csdn1-copy"></i></a><a class="social-icon" href="https://leetcode-cn.com/u/dingzihang00/" target="_blank" title="LeetCode"><i class="fab iconfont icon-leetcode"></i></a><a class="social-icon" href="https://space.bilibili.com/6964209" target="_blank" title="Bilibili"><i class="fab iconfont icon-bilibili-fill"></i></a><a class="social-icon" href="https://i.y.qq.com/n2/m/share/details/taoge.html?id=3885764921" target="_blank" title="QQ音乐"><i class="fab iconfont icon-QQyinle"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到花裱の博客!! <img src="/img/xiaonvhai.gif"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">踩坑记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E7%94%A8-int%E6%95%B0%E7%BB%84-%E4%BB%A3%E6%9B%BF-HashMap-lt-Character-Integer-gt"><span class="toc-number">2.</span> <span class="toc-text">可以用 int数组 代替 HashMap&lt;Character,Integer&gt;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E4%BA%8E%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C%E7%9A%84%E7%AE%97%E6%B3%95%E9%A2%98%E4%B8%AD%EF%BC%8C%E7%94%A8%E6%9D%A5%E5%AE%9E%E7%8E%B0%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="toc-number">2.1.</span> <span class="toc-text">常用于对字符串进行操作的算法题中，用来实现滑动窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BB%A5%E8%BF%99%E6%A0%B7%E5%81%9A%EF%BC%9F%EF%BC%9F"><span class="toc-number">2.2.</span> <span class="toc-text">为什么可以这样做？？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E6%98%AF%E6%95%B4%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">判断一个数是否是整数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E7%B4%A0%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">判断素数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E8%BD%AC%E6%95%B0%E5%AD%97"><span class="toc-number">5.</span> <span class="toc-text">反转数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E5%8F%96%E6%95%B4"><span class="toc-number">6.</span> <span class="toc-text">浮点数取整</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%A4%A7%E6%95%B0%E7%B1%BB%E8%BF%9B%E8%A1%8C%E5%87%86%E7%A1%AE%E7%9A%84%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5"><span class="toc-number">6.1.</span> <span class="toc-text">利用大数类进行准确的四舍五入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">求最大公约数和最小公倍数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0-%E2%80%94%E2%80%94-%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95%EF%BC%88%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">7.1.</span> <span class="toc-text">最大公约数的实现 —— 辗转相除法（欧几里得算法）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="toc-number">7.2.</span> <span class="toc-text">最大公约数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0"><span class="toc-number">7.3.</span> <span class="toc-text">最小公倍数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5"><span class="toc-number">8.</span> <span class="toc-text">四舍五入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%A4%A7%E6%95%B0%E7%B1%BB%E8%BF%9B%E8%A1%8C%E5%87%86%E7%A1%AE%E7%9A%84%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5-1"><span class="toc-number">8.1.</span> <span class="toc-text">利用大数类进行准确的四舍五入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%BB%E9%87%8D"><span class="toc-number">9.</span> <span class="toc-text">去重</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E5%92%8C%E5%BF%AB%E9%80%9F%E8%BE%93%E5%87%BA-%E2%80%94%E2%80%94-BufferedReader%E5%92%8C-BufferWriter"><span class="toc-number">10.</span> <span class="toc-text">快速输入和快速输出 —— BufferedReader和 BufferWriter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5-%E2%80%94%E2%80%94-BufferedReader"><span class="toc-number">10.1.</span> <span class="toc-text">输入 —— BufferedReader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA-%E2%80%94%E2%80%94-BufferWriter"><span class="toc-number">10.2.</span> <span class="toc-text">输出 —— BufferWriter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BE%97%E5%9C%A8%E7%B1%BB%E5%A3%B0%E6%98%8E%E5%90%8E%E8%BF%9B%E8%A1%8C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%8Cthrows-IOException"><span class="toc-number">10.3.</span> <span class="toc-text">记得在类声明后进行异常处理，throws IOException</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-String-format-%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E6%8D%AE"><span class="toc-number">11.</span> <span class="toc-text">利用 String.format() 格式化数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E9%9B%86%E5%90%88%E7%9A%84%E4%BA%A4%E9%9B%86%E3%80%81%E5%B7%AE%E9%9B%86%E3%80%81%E5%B9%B6%E9%9B%86"><span class="toc-number">12.</span> <span class="toc-text">求集合的交集、差集、并集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E9%9B%86-%E2%80%94%E2%80%94-retainAll"><span class="toc-number">12.1.</span> <span class="toc-text">交集 —— retainAll()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%AE%E9%9B%86-%E2%80%94%E2%80%94-removeAll"><span class="toc-number">12.2.</span> <span class="toc-text">差集 —— removeAll()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E9%9B%86-%E2%80%94%E2%80%94-addAll"><span class="toc-number">12.3.</span> <span class="toc-text">并集 —— addAll()</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/b3f89ff3.html" title="JS、CSS异步加载优化方案"><img src="/img/categoryHome.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS、CSS异步加载优化方案"/></a><div class="content"><a class="title" href="/posts/b3f89ff3.html" title="JS、CSS异步加载优化方案">JS、CSS异步加载优化方案</a><time datetime="2022-01-05T08:40:21.000Z" title="发表于 2022-01-05 16:40:21">2022-01-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3151887a.html" title="配置github始终以https协议打开博客"><img src="/img/bg11.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="配置github始终以https协议打开博客"/></a><div class="content"><a class="title" href="/posts/3151887a.html" title="配置github始终以https协议打开博客">配置github始终以https协议打开博客</a><time datetime="2022-01-03T08:04:51.000Z" title="发表于 2022-01-03 16:04:51">2022-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1e5452bd.html" title="VSCODE 配置GitBash终端，并始终以管理员身份运行"><img src="/img/bg7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VSCODE 配置GitBash终端，并始终以管理员身份运行"/></a><div class="content"><a class="title" href="/posts/1e5452bd.html" title="VSCODE 配置GitBash终端，并始终以管理员身份运行">VSCODE 配置GitBash终端，并始终以管理员身份运行</a><time datetime="2022-01-03T07:43:02.000Z" title="发表于 2022-01-03 15:43:02">2022-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/f77f8e26.html" title="Hexo+GitHub 实现域名配置（别被旧文章坑了）"><img src="/img/bg1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+GitHub 实现域名配置（别被旧文章坑了）"/></a><div class="content"><a class="title" href="/posts/f77f8e26.html" title="Hexo+GitHub 实现域名配置（别被旧文章坑了）">Hexo+GitHub 实现域名配置（别被旧文章坑了）</a><time datetime="2022-01-03T06:26:49.000Z" title="发表于 2022-01-03 14:26:49">2022-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ee8ba81c.html" title="刷题随笔"><img src="/img/bg8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="刷题随笔"/></a><div class="content"><a class="title" href="/posts/ee8ba81c.html" title="刷题随笔">刷题随笔</a><time datetime="2022-01-02T11:22:36.000Z" title="发表于 2022-01-02 19:22:36">2022-01-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright"><span>&copy;2021 - 2022</span><svg style="width:1.5em; height:1.5em" aria-hidden="true"><use xlink:href="#icon-diqiu"></use></svg><span>花裱</span></div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://icp.gov.moe/?keyword=20221220" target="_blank"><img class="icp-icon" src="/img/icp.png"><span>萌ICP备20221220号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="to_comment" type="button" title="直达评论" onclick="FixedCommentBtn();"><i class="fas fa-comments"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script defer src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo-mu-ten.vercel.app/',
+      region: ''
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-mu-ten.vercel.app/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo@1.4.15/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer src="https://cdn.jsdelivr.net/gh/rplalala/BlogDemo/live2d-widget/autoload.js"></script><script async src="//at.alicdn.com/t/font_3113985_1d98llbey06.js"></script><script data-pjax defer src="/js/fixedComment_twikoo.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
