@@ -3,3 +3,4 @@ Disallow: /
 Allow: /posts/
 
 Sitemap: https://dingzihang00.top/baidusitemap.xml
+Sitemap: https://dingzihang00.top/sitemap.xml
