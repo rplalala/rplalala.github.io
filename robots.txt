@@ -1,6 +1,5 @@
 User-agent: *
-Disallow: /
-Allow: /posts/
+Allow: /
 
 Sitemap: https://dingzihang00.top/baidusitemap.xml
 Sitemap: https://dingzihang00.top/sitemap.xml
