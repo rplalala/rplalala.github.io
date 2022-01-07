@@ -44,9 +44,10 @@ div#menus,
   font-size: 1.25em;
 }
 
-#footer span{
+/* 页脚下的所有文字。包含选择器，指向 #footer 下的所有span标签 */
+#footer span{   
   font-family: 'Zhi Mang Xing', serif, monospace;
-  font-size: 1.3rem;
+  font-size: 1rem;  /** 默认是em相对父类，我把它改成em相对html了(16px) **/
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {

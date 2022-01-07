@@ -21,12 +21,9 @@ function getdate(period) {
 		if (year != 0) result = result + year + "年";
 		if (month != 0) result = result + month + "月";
 		if (day != 0) result = result + day + "天";
-		if (hour < 10) result = result + "0" + hour + "时";
-		else result = result + hour + "时";
-		if (minute < 10) result = result + "0" + minute + "分";
-		else result = result + hour + "分";
-		if (second < 10) result = result + "0" + second + "秒";
-		else result = result + hour + "秒";
+		result = (hour < 10 ? result + "0" + hour : result + hour) + "时";
+		result = (minute < 10 ? result + "0" + minute : result + minute) + "分";
+		result = (second < 10 ? result + "0" + second : result + second) + "秒";
 		result = "本站已安全运行" + result;
 		return result;
 
