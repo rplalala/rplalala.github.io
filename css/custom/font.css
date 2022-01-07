@@ -1,0 +1,45 @@
+
+/* --------------------------------------------------- */
+/* ----------------------字体------------------------ */
+/* --------------------------------------------------- */
+
+@import "//at.alicdn.com/t/font_3113985_zb6u27t0mq.css";
+/* 导入阿里ico —— font-class类型 */
+/* 字体包。中文：Zhi Mang Xing 代码：JetBrains Mono、Fira Code、Roboto*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@450&family=JetBrains+Mono:wght@450&family=Roboto&family=Zhi+Mang+Xing&display=swap');
+
+/* --------------------------------------------------- */
+/* ----------------------分隔栏------------------------ */
+/* --------------------------------------------------- */
+
+/* 1.文本字体设置 */
+/* 左上角标题，副标题（加weight没用） */
+a#site-name,
+span#subtitle {
+  font-family: 'Zhi Mang Xing', serif, monospace;
+  font-size: 1.3rem;
+  /** rem: 相对于HTML的字号；em：相对于父标签的字号 **/
+}
+
+/* 中间标题（加size没有） */
+h1#site-title {
+  font-family: 'Zhi Mang Xing', serif, monospace;
+  font-weight: 200;
+}
+
+/* 依次是：作者名、座右铭下三个标签、三个标签对应的数字（这几个经过测试加size和weight没有） */
+.author-info__name,
+.headline,
+.length-num {
+  font-family: 'Zhi Mang Xing', serif, monospace;
+}
+
+/* 依次是：文章名下第二行、文章文章名下第一行、文章标题、菜单栏、博客作者座右铭*/
+.meta-secondline,
+.meta-firstline,
+h1.post-title,
+div#menus,
+.author-info__description {
+  font-family: 'Zhi Mang Xing', serif, monospace;
+  font-size: 1.25em;
+}
