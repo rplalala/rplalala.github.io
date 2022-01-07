@@ -2,9 +2,6 @@
 /* --------------------------------------------------- */
 /* ----------------------字体------------------------ */
 /* --------------------------------------------------- */
-
-@import "//at.alicdn.com/t/font_3113985_zb6u27t0mq.css";
-/* 导入阿里ico —— font-class类型 */
 /* 字体包。中文：Zhi Mang Xing 代码：JetBrains Mono、Fira Code、Roboto*/
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@450&family=JetBrains+Mono:wght@450&family=Roboto&family=Zhi+Mang+Xing&display=swap');
 
