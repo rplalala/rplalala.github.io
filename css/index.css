@@ -43,6 +43,11 @@ div#menus,
   font-family: 'Zhi Mang Xing', serif, monospace;
   font-size: 1.25em;
 }
+
+#footer span{
+  font-family: 'Zhi Mang Xing', serif, monospace;
+  font-size: 1.3rem;
+}
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
   line-height: 1.15;
