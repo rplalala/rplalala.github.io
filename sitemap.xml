@@ -137,14 +137,21 @@
 
   
   <url>
-    <loc>https://dingzihang00.top/tags/%E4%BC%98%E5%8C%96/</loc>
+    <loc>https://dingzihang00.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://dingzihang00.top/tags/%E5%9F%9F%E5%90%8D/</loc>
+    <lastmod>2022-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzihang00.top/tags/%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -158,7 +165,7 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/%E5%9F%9F%E5%90%8D/</loc>
+    <loc>https://dingzihang00.top/tags/vscode/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -173,13 +180,6 @@
   
   <url>
     <loc>https://dingzihang00.top/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzihang00.top/tags/vscode/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -251,14 +251,14 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://dingzihang00.top/categories/vscode/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/categories/vscode/</loc>
+    <loc>https://dingzihang00.top/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
