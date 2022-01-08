@@ -64,21 +64,11 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-
-/* iconfont默认样式(使用SVG图标时要加这段代码) */
-svg.icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
-}
-
 /* --------------------------------------------------- */
 /* ----------------------分隔栏------------------------ */
 /* --------------------------------------------------- */
 
-/* 3.页脚蝴蝶振翅动画 */
+/* 3.页脚地球动画 */
 .copyright svg {
   animation: butterfly 1s linear infinite alternate;
 }

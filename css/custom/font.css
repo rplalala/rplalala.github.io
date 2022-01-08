@@ -4,6 +4,7 @@
 /* --------------------------------------------------- */
 /* 字体包。中文：Zhi Mang Xing 代码：JetBrains Mono、Fira Code、Roboto*/
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@450&family=JetBrains+Mono:wght@450&family=Roboto&family=Zhi+Mang+Xing&display=swap');
+@import url('//at.alicdn.com/t/font_3113985_zb6u27t0mq.css'); /** 阿里图标CSS包 */
 
 /* --------------------------------------------------- */
 /* ----------------------分隔栏------------------------ */
@@ -45,4 +46,14 @@ div#menus,
 #footer span{   
   font-family: 'Zhi Mang Xing', serif, monospace;
   font-size: 1rem;  /** 默认是em相对父类，我把它改成em相对html了(16px) **/
+}
+
+
+/* 2.iconfont 通用css代码（js引入图库时要这个作为前提）*/
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
