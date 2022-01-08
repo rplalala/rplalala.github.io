@@ -18,13 +18,13 @@ function getdate(period) {
 		var second = parseInt(getSecond(period - year * yearLevelValue - month * monthLevelValue - day * dayLevelValue -
 			hour * hourLevelValue - minute * minuteLevelValue));
 		var result = "";
-		if (year != 0) result = result + year + "年";
-		if (month != 0) result = result + month + "月";
-		if (day != 0) result = result + day + "天";
-		result = (hour < 10 ? result + "0" + hour : result + hour) + "时";
-		result = (minute < 10 ? result + "0" + minute : result + minute) + "分";
-		result = (second < 10 ? result + "0" + second : result + second) + "秒";
-		result = "本站已安全运行" + result;
+		if (year != 0) result = result + year + " 年 ";
+		if (month != 0) result = result + month + " 月 ";
+		if (day != 0) result = result + day + " 天 ";
+		result = (hour < 10 ? result + "0" + hour : result + hour) + " 时 ";
+		result = (minute < 10 ? result + "0" + minute : result + minute) + " 分 ";
+		result = (second < 10 ? result + "0" + second : result + second) + " 秒";
+		result = "本站已安全运行 " + result;
 		return result;
 
 		function getYear(period) {
