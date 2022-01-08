@@ -165,6 +165,13 @@
   </url>
   
   <url>
+    <loc>https://dingzihang00.top/tags/vscode/</loc>
+    <lastmod>2022-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://dingzihang00.top/tags/Java%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -173,13 +180,6 @@
   
   <url>
     <loc>https://dingzihang00.top/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzihang00.top/tags/vscode/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -251,14 +251,14 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://dingzihang00.top/categories/vscode/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/categories/vscode/</loc>
+    <loc>https://dingzihang00.top/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2022-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
