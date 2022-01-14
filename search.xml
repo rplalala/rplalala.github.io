@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>IDEA配置Tomcat</title>
+      <link href="/posts/1a57c6b6.html"/>
+      <url>/posts/1a57c6b6.html</url>
+      
+        <content type="html"><![CDATA[<p>未完待续……</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java Web </tag>
+            
+            <tag> Tomcat </tag>
+            
+            <tag> IDEA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深拷贝与浅拷贝</title>
+      <link href="/posts/23ccefd3.html"/>
+      <url>/posts/23ccefd3.html</url>
+      
+        <content type="html"><![CDATA[<p>未完待续……</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java基础 </tag>
+            
+            <tag> 深拷贝 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>部署博客中各种踩坑点记录</title>
       <link href="/posts/b4caf892.html"/>
       <url>/posts/b4caf892.html</url>
@@ -69,7 +125,7 @@
       
       <categories>
           
-          <category> 数据结构 </category>
+          <category> 算法与数据结构 </category>
           
       </categories>
       
@@ -79,8 +135,6 @@
             <tag> 栈 </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 算法 </tag>
             
         </tags>
       
@@ -98,7 +152,7 @@
       
       <categories>
           
-          <category> 数据结构 </category>
+          <category> 算法与数据结构 </category>
           
       </categories>
       
@@ -107,7 +161,7 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 算法 </tag>
+            <tag> 链表 </tag>
             
         </tags>
       
@@ -133,8 +187,6 @@
         <tags>
             
             <tag> 博客 </tag>
-            
-            <tag> 优化 </tag>
             
             <tag> 转载 </tag>
             
@@ -165,8 +217,6 @@
             
             <tag> github </tag>
             
-            <tag> https </tag>
-            
         </tags>
       
     </entry>
@@ -183,14 +233,16 @@
       
       <categories>
           
-          <category> vscode </category>
+          <category> 工具和软件 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> vscode </tag>
+            <tag> VSCODE </tag>
+            
+            <tag> GitBash </tag>
             
         </tags>
       
