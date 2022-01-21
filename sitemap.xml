@@ -218,6 +218,20 @@
 
   
   <url>
+    <loc>https://dingzihang00.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2022-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzihang00.top/tags/%E5%9F%9F%E5%90%8D/</loc>
+    <lastmod>2022-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://dingzihang00.top/tags/Java-Web/</loc>
     <lastmod>2022-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -239,14 +253,14 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://dingzihang00.top/tags/Java%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/%E5%9F%9F%E5%90%8D/</loc>
+    <loc>https://dingzihang00.top/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2022-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -302,20 +316,6 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/Java%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2022-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzihang00.top/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://dingzihang00.top/tags/%E6%A0%88/</loc>
     <lastmod>2022-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -337,14 +337,14 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/github/</loc>
+    <loc>https://dingzihang00.top/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/</loc>
     <lastmod>2022-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/</loc>
+    <loc>https://dingzihang00.top/tags/github/</loc>
     <lastmod>2022-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -360,13 +360,6 @@
 
   
   <url>
-    <loc>https://dingzihang00.top/categories/Java-Web/</loc>
-    <lastmod>2022-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://dingzihang00.top/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-01-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -374,7 +367,7 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/categories/%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6/</loc>
+    <loc>https://dingzihang00.top/categories/Java-Web/</loc>
     <lastmod>2022-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -382,6 +375,13 @@
   
   <url>
     <loc>https://dingzihang00.top/categories/Java-%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2022-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzihang00.top/categories/%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2022-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
