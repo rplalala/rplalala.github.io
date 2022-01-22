@@ -226,11 +226,11 @@
     
     
     <entry>
-      <title>配置github始终以https协议打开博客</title>
+      <title>配置Github始终以https协议打开博客</title>
       <link href="/posts/3151887a.html"/>
       <url>/posts/3151887a.html</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>18年GitHub Pages 上的自定义域获得了对HTTPS的支持</strong><br>内容详见 <a class="btn-beautify button--animated outline" href="https://github.blog/2018-05-01-github-pages-custom-domains-https/"   title="GitHub对HTTPS的支持"><i class="far fa-hand-point-right"></i><span>GitHub对HTTPS的支持</span></a></p><h1 id="给博客配置域名"><a href="#给博客配置域名" class="headerlink" title="给博客配置域名"></a>给博客配置域名</h1><p>如何给博客配置域名，详见 <a class="btn-beautify button--animated outline" href="https://dingzihang00.top/posts/f77f8e26.html"   title="hexo博客配置域名"><i class="far fa-hand-point-right"></i><span>hexo博客配置域名</span></a></p><h1 id="配置GitHub"><a href="#配置GitHub" class="headerlink" title="配置GitHub"></a>配置GitHub</h1><p><strong>勾上 Enforce HTTPS</strong><br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s2.loli.net/2022/01/03/VxXUq5mEfAkH9zG.png" alt="GitHub配置https.png"></p><p><strong>成功</strong><br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s2.loli.net/2022/01/03/a8jEviVQPIeMXN7.png" alt="https博客.png"></p><p>点开安全锁，还可以查看证书哦</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>18年GitHub Pages 上的自定义域获得了对HTTPS的支持</strong><br>内容详见 <a class="btn-beautify button--animated outline" href="https://github.blog/2018-05-01-github-pages-custom-domains-https/"   title="GitHub对HTTPS的支持"><i class="far fa-hand-point-right"></i><span>GitHub对HTTPS的支持</span></a></p><h1 id="给博客配置域名"><a href="#给博客配置域名" class="headerlink" title="给博客配置域名"></a>给博客配置域名</h1><p>如何给博客配置域名，详见 <a class="btn-beautify button--animated outline" href="https://dingzihang00.top/posts/f77f8e26.html"   title="hexo博客配置域名"><i class="far fa-hand-point-right"></i><span>hexo博客配置域名</span></a></p><h1 id="配置GitHub"><a href="#配置GitHub" class="headerlink" title="配置GitHub"></a>配置GitHub</h1><p><strong>勾上 Enforce HTTPS</strong><br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s2.loli.net/2022/01/03/VxXUq5mEfAkH9zG.png" alt="GitHub配置https.png"></p><p><strong>成功</strong><br><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s2.loli.net/2022/01/03/a8jEviVQPIeMXN7.png" alt="https博客.png"></p><p>点开安全锁，还可以查看证书哦</p><h1 id="阿里云获取免费的SSL证书"><a href="#阿里云获取免费的SSL证书" class="headerlink" title="阿里云获取免费的SSL证书"></a>阿里云获取免费的SSL证书</h1><p>由于我决定使用阿里cdn了，自然也就不能用github免费提供的HTTPS了，但是没关系，阿里云每年都可以申请20个免费的SSL证书，对我来说足够用了。</p>]]></content>
       
       
       <categories>
@@ -244,7 +244,7 @@
             
             <tag> 博客 </tag>
             
-            <tag> github </tag>
+            <tag> HTTPS </tag>
             
         </tags>
       
