@@ -400,27 +400,6 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/VSCODE/</loc>
-    <lastmod>2022-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzihang00.top/tags/GitBash/</loc>
-    <lastmod>2022-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzihang00.top/tags/MySQL/</loc>
-    <lastmod>2022-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://dingzihang00.top/tags/Python/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -429,6 +408,13 @@
   
   <url>
     <loc>https://dingzihang00.top/tags/%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzihang00.top/tags/MySQL/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -449,6 +435,27 @@
   </url>
   
   <url>
+    <loc>https://dingzihang00.top/tags/VSCODE/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzihang00.top/tags/MarkDown/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzihang00.top/tags/GitBash/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://dingzihang00.top/tags/%E9%98%9F%E5%88%97/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -463,14 +470,14 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/MarkDown/</loc>
+    <loc>https://dingzihang00.top/tags/%E5%88%B7%E9%A2%98/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/%E5%88%B7%E9%A2%98/</loc>
+    <loc>https://dingzihang00.top/tags/Web/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -498,13 +505,6 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/Web/</loc>
-    <lastmod>2022-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://dingzihang00.top/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -526,13 +526,6 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/tags/Java/</loc>
-    <lastmod>2022-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://dingzihang00.top/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -548,6 +541,13 @@
   
   <url>
     <loc>https://dingzihang00.top/tags/HTTPS/</loc>
+    <lastmod>2022-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzihang00.top/tags/Java/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -584,7 +584,7 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/categories/%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6/</loc>
+    <loc>https://dingzihang00.top/categories/Python/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -598,7 +598,7 @@
   </url>
   
   <url>
-    <loc>https://dingzihang00.top/categories/Python/</loc>
+    <loc>https://dingzihang00.top/categories/%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2022-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
