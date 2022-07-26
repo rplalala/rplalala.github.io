@@ -1,1 +1,90 @@
-function getdate(e){var t=31536e6,n=2592e6,r=864e5,a=36e5,o=6e4;return function(e){var i=parseInt(function(e){return Math.floor(parseInt(e)/t)}(e)),u=parseInt(function(e){return Math.floor(parseInt(e)/n)}(e-i*t)),l=parseInt(function(e){return Math.floor(parseInt(e)/r)}(e-i*t-u*n)),f=parseInt(function(e){return Math.floor(parseInt(e)/a)}(e-i*t-u*n-l*r)),c=parseInt(function(e){return Math.floor(parseInt(e)/o)}(e-i*t-u*n-l*r-f*a)),m=parseInt(function(e){return Math.floor(parseInt(e)/1e3)}(e-i*t-u*n-l*r-f*a-c*o)),s="";0!=i&&(s=s+i+" 年 ");0!=u&&(s=s+u+" 月 ");0!=l&&(s=s+l+" 天 ");return s=(f<10?s+"0"+f:s+f)+" 时 ",s=(c<10?s+"0"+c:s+c)+" 分 ",s="本站已安全运行 "+(s=(m<10?s+"0"+m:s+m)+" 秒")}(e)}function getdiffTime(){var e=new Date("2021/12/31 12:00:00"),t=new Date;document.getElementById("timeShow").innerHTML=getdate(t-e)}var timer=null;function myAplayer(){let e=document.getElementsByClassName("aplayer-icon-lrc")[0];e?(e.click(),timer||clearTimeout(timer)):timer=setTimeout(myAplayer,0)}function addFav(){alert("您的浏览器不支持自动收藏😭 请 Ctrl + D 手动收藏本站😋")}myAplayer(),setInterval("getdiffTime()",1e3);
+// 1.时间戳转换。页脚时间
+function getdate(period) {
+	var yearLevelValue = 365 * 24 * 60 * 60 * 1000;
+	var monthLevelValue = 30 * 24 * 60 * 60 * 1000;
+	var dayLevelValue = 24 * 60 * 60 * 1000;
+	var hourLevelValue = 60 * 60 * 1000;
+	var minuteLevelValue = 60 * 1000;
+	var secondLevelValue = 1000;
+	return getDifference(period);
+
+	function getDifference(period) {
+		/*******计算出时间差中的年、月、日、天、时、分、秒*******/
+		var year = parseInt(getYear(period));
+		var month = parseInt(getMonth(period - year * yearLevelValue));
+		var day = parseInt(getDay(period - year * yearLevelValue - month * monthLevelValue));
+		var hour = parseInt(getHour(period - year * yearLevelValue - month * monthLevelValue - day * dayLevelValue));
+		var minute = parseInt(getMinute(period - year * yearLevelValue - month * monthLevelValue - day * dayLevelValue -
+			hour * hourLevelValue));
+		var second = parseInt(getSecond(period - year * yearLevelValue - month * monthLevelValue - day * dayLevelValue -
+			hour * hourLevelValue - minute * minuteLevelValue));
+		var result = "";
+		if (year != 0) result = result + year + " 年 ";
+		if (month != 0) result = result + month + " 月 ";
+		if (day != 0) result = result + day + " 天 ";
+		result = (hour < 10 ? result + "0" + hour : result + hour) + " 时 ";
+		result = (minute < 10 ? result + "0" + minute : result + minute) + " 分 ";
+		result = (second < 10 ? result + "0" + second : result + second) + " 秒";
+		result = "本站已安全运行 " + result;
+		return result;
+
+		function getYear(period) {
+			//Math.floor()
+			return Math.floor(parseInt(period) / yearLevelValue);
+		}
+
+		function getMonth(period) {
+			return Math.floor(parseInt(period) / monthLevelValue);
+		}
+
+		function getDay(period) {
+			return Math.floor(parseInt(period) / dayLevelValue);
+		}
+
+		function getHour(period) {
+			return Math.floor(parseInt(period) / hourLevelValue);
+		}
+
+		function getMinute(period) {
+			return Math.floor(parseInt(period) / minuteLevelValue);
+		}
+
+		function getSecond(period) {
+			return Math.floor(parseInt(period) / secondLevelValue);
+		}
+
+	}
+}
+
+function getdiffTime() {
+	var oldData = new Date("2021/12/31 12:00:00");
+	var newData = new Date();
+	document.getElementById("timeShow").innerHTML = getdate(newData - oldData);
+}
+
+// 2. 等待 .aplayer-icon-lrc 这个dom结构加载完之后，才去关闭歌词
+var timer = null;
+function myAplayer() {
+	let dom = document.getElementsByClassName("aplayer-icon-lrc")[0];
+	if(dom) {
+		// 执行dom加载完成后的操作，例如echart的初始化操作
+	   dom.click();
+	   // 清除定时器
+	   if(!timer) {
+		   clearTimeout(timer)
+	   }
+   } else {
+	   //  自我调用
+	   timer = setTimeout(myAplayer, 0)
+   }
+}
+
+// 3.收藏
+function addFav() {
+	alert("您的浏览器不支持自动收藏😭 请 Ctrl + D 手动收藏本站😋")
+}
+
+// 执行关闭歌词一次。定时器 setInterval、setTimeout是异步的，并不会说一个一个按顺序加载
+myAplayer();
+// 执行页脚计时器每秒一次
+setInterval("getdiffTime()", 1000); //每隔一秒执行一次 getdiffTime() 函数
