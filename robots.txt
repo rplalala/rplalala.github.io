@@ -2,5 +2,5 @@ User-agent: *
 Allow: /posts
 Disallow: /
 
-Sitemap: https://dingzihang00.top/baidusitemap.xml
-Sitemap: https://dingzihang00.top/sitemap.xml
+Sitemap: https://dingzh.cc/baidusitemap.xml
+Sitemap: https://dingzh.cc/sitemap.xml
