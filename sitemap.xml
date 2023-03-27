@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dingzh.cc/posts/ba5f934e.html</loc>
+    
+    <lastmod>2023-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://dingzh.cc/posts/dd41aa79.html</loc>
     
     <lastmod>2023-03-26</lastmod>
@@ -167,15 +176,6 @@
     <loc>https://dingzh.cc/posts/43cb3cd5.html</loc>
     
     <lastmod>2022-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzh.cc/posts/c3498269.html</loc>
-    
-    <lastmod>2022-04-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -394,20 +394,6 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzh.cc/tags/%E5%9F%9F%E5%90%8D/</loc>
-    <lastmod>2023-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://dingzh.cc/tags/Java-Web/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -423,6 +409,20 @@
   
   <url>
     <loc>https://dingzh.cc/tags/IDEA/</loc>
+    <lastmod>2023-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzh.cc/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2023-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzh.cc/tags/%E5%9F%9F%E5%90%8D/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -457,20 +457,6 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/Python/</loc>
-    <lastmod>2023-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzh.cc/tags/%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2023-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://dingzh.cc/tags/VSCODE/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -479,6 +465,20 @@
   
   <url>
     <loc>https://dingzh.cc/tags/GitBash/</loc>
+    <lastmod>2023-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzh.cc/tags/Python/</loc>
+    <lastmod>2023-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzh.cc/tags/%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -541,13 +541,6 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/%E5%A3%B0%E6%98%8E/</loc>
-    <lastmod>2023-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://dingzh.cc/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -576,14 +569,14 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/</loc>
+    <loc>https://dingzh.cc/tags/%E6%A0%88/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/%E6%A0%88/</loc>
+    <loc>https://dingzh.cc/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -598,6 +591,13 @@
   
   <url>
     <loc>https://dingzh.cc/tags/Java/</loc>
+    <lastmod>2023-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzh.cc/tags/%E8%B7%A8%E5%9F%9F/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -627,14 +627,14 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/categories/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://dingzh.cc/categories/Web/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzh.cc/categories/Web/</loc>
+    <loc>https://dingzh.cc/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -655,14 +655,14 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/categories/Python/</loc>
+    <loc>https://dingzh.cc/categories/%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzh.cc/categories/%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6/</loc>
+    <loc>https://dingzh.cc/categories/Python/</loc>
     <lastmod>2023-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

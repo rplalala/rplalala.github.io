@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>解决将谷歌字体部署在阿里cdn上产生的跨域问题</title>
+      <link href="/posts/ba5f934e.html"/>
+      <url>/posts/ba5f934e.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于fonts.gstatic.com经常挂太不稳定，所以决定把字体迁移到cdn上。迁移后发现博客字体全部报红，看报红信息发现是出现了跨域问题（简而言之就是字体和博客服务器不在同一站下）。当然可以将字体全部放在博客服务器下用相对路径引用，这样肯定不会出现跨域问题。但我还是喜欢引用cdn，这里说一下阿里cdn的解决办法。</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol><li>在阿里云控制台进入cdn控制</li><li>在域名管理里，选择和你oss云储存绑定的cdn域名</li><li>选择 缓存配置 -&gt; 自定义HTTP相应头</li><li>按图片配置好就行，响应头值换成需要允许跨域的域名，可以设置多个，具体配置和示例可以看下面的阿里云帮助文档</li></ol><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://alicdn.dingzh.cc/img/202303271219330.png" alt=""></p><div class="tip info"><p>具体操作见阿里云帮助文档，内容如下：<a href="https://help.aliyun.com/document_detail/27137.html?spm=5176.11785003.help.dexternal.18ed142fdeW1Ti">https://help.aliyun.com/document_detail/27137.html?spm=5176.11785003.help.dexternal.18ed142fdeW1Ti</a></p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+            <tag> 跨域 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2022年四月番</title>
       <link href="/posts/8dce5dd7.html"/>
       <url>/posts/8dce5dd7.html</url>
@@ -23,31 +50,6 @@
             <tag> 2022年4月番 </tag>
             
             <tag> 动漫 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>声明</title>
-      <link href="/posts/c3498269.html"/>
-      <url>/posts/c3498269.html</url>
-      
-        <content type="html"><![CDATA[<div class="note primary modern"><p>说来惭愧，建立好博客区区过了一个多月的时间，我就要决定暂缓更新了。<br>我大学学的专业是电子信息工程，虽然同是计算机学院，但学的东西除了大一1门C语言外就几乎没有任何交集了。<br>大学三年，我自学的东西有很多，但回首一下，却大都只是皮毛。<br>项目也做过一些，有在实验室做的，有自己上网课跟着教程做的，也有自己心血来潮做的，但拿的出手的可以说是没有一个<br>所以，我决定考研，一是为了提高下自己的学历，二也是为了给自己在来两年的缓冲时间，接着学习和精进更多知识。<br>现在是2022年3月6日，希望在今年12月我能自信的踏上考场，并在来年的此刻收到好消息。<br>以上，共勉。</p></div>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 声明 </tag>
             
         </tags>
       
