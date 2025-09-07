@@ -1,1 +1,0 @@
-function myArtitalk(){document.querySelector(".item-headline a[title='artitalk page link']").innerHTML="随言"}myArtitalk();
