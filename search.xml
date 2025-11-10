@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>阿里云CDN 配置国内外双源站策略，加快国内外访问</title>
+      <link href="/posts/1383d4dc.html"/>
+      <url>/posts/1383d4dc.html</url>
+      
+        <content type="html"><![CDATA[<p>我的静态资源大多挂在阿里云的oss服务上，用cdn加速访问。在只有杭州一个源站的情况下，大部分时候我在海外能够流畅的访问资源，但有时候还是会遇到回源失败的问题，导致资源加载失败，影响体验。（11月10日海外访问博客大量静态资源加载时间几乎都在30s以上，估计是短暂的回源失败了，毕竟大陆网络比较复杂）</p><p>所以干脆就加了一个国外源站（新加坡），并在阿里云cdn设置规则，让国内用户访问国内源站（杭州），国外用户访问国外源站（新加坡）。这样国外用户回源的时候就不用跨境访问杭州的源站，直接访问新加坡的源站就可以了。而国内用户访问还是照常访问杭州的源站。</p><p>切换结束后，国外访问速度明显有了秒级提升，毕竟原本如果边缘没有命中缓存，不得不跨境到杭州回源，但由于大陆网络的特殊性，跨境访问时延会比较高，而现在直接访问新加坡源站，时延就低了很多。</p><p>参考链接：<a href="https://www.cnblogs.com/lizexiong/p/19120990">https://www.cnblogs.com/lizexiong/p/19120990</a></p><div class="tip info"><p>未来，在云服务器层面，有条件的话可以购置一台阿里云的云服务器作为国内的源站。我现在只有一台新加坡节点的ec2服务器，国外访问快。但国内即使挂在了cdn，在用户第一次访问还没有缓存到边缘节点，或命中边缘节点失败/缓存过期时，还是需要跨境回源到新加坡的ec2服务器，时延会比较高。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">用户在国内访问</span><br><span class="line">↓</span><br><span class="line">访问最近的国内边缘节点</span><br><span class="line">├─ 若国内边缘节点有缓存：直接返回缓存</span><br><span class="line">│      ↓</span><br><span class="line">│    用户：资源加载成功（本次访问命中缓存，基本上是同区域访问，速度很快）</span><br><span class="line">│</span><br><span class="line">├─ 若国内边缘节点没有缓存：回源到源站寻找资源（ec2 新加坡服务器）</span><br><span class="line">│       ↓</span><br><span class="line">│    从新加坡源站获取资源，回传到国内边缘节点并缓存</span><br><span class="line">│       ↓</span><br><span class="line">│    用户：资源加载成功（本次访问未命中国内边缘节点缓存，跨境访问源站，速度较慢）</span><br></pre></td></tr></table></figure><p>如果有一台国内的云服务器，就可以设置cdn规则，让国内用户直接回源到国内的云服务器，国外用户回源到新加坡的ec2服务器，这样就算是国内用户第一次访问没有命中缓存时，也能直接回源到国内的云服务器，速度会快很多。</p><p>```</p></div>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>对 Ai Agent 的一些粗浅理解</title>
       <link href="/posts/d4e383e3.html"/>
       <url>/posts/d4e383e3.html</url>
@@ -257,9 +270,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
