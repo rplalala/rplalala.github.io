@@ -1,6 +1,9 @@
 User-agent: *
-Allow: /posts
+Allow: /posts/
+Allow: /sitemap.xml
+Allow: /baidusitemap.xml
+Allow: /index.html
 Disallow: /
 
-Sitemap: https://dingzh.cc/baidusitemap.xml
 Sitemap: https://dingzh.cc/sitemap.xml
+Sitemap: https://dingzh.cc/baidusitemap.xml
