@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dingzh.cc/sitemap.xml
+Sitemap: https://dingzh.cc/baidusitemap.xml
