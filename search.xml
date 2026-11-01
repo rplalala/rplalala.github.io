@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>用 Agent 写 Hexo 博客：从材料、配图到本地验证</title>
+      <link href="/posts/57af26b0.html"/>
+      <url>/posts/57af26b0.html</url>
+      
+        <content type="html"><![CDATA[<p>给 Agent 一句想法，或者一份已经整理好的材料，让它帮我写成博客，这是这套流程最初的目标。但文章写进 Markdown 后，还有封面、正文插图、组件排版、图片上传和页面检查。把这些环节留在对话里临时交代，每次写作都得重新说明一遍。</p><p>现在，我把它们收进项目内的 <code>blog-writer</code> skill。它负责串起写作过程，具体的生图和上传则交给已有工具。配置这套流程时，最有用的几个决定，是区分封面与正文插图的处理方式、给详细规则找到固定位置，以及把图片回填和页面预览也算进完成条件。</p><h2 id="先把一篇文章走完"><a href="#先把一篇文章走完" class="headerlink" title="先把一篇文章走完"></a>先把一篇文章走完</h2><p>目前的主线是：整理材料，完成正文与排版，再处理正文插图和封面，最后检查生成的页面。</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://alicdn.dingzh.cc/ding-BlogDemo/img/posts/illustrations/57af26b0/01.webp?v=34abaa22fcf5" alt="写作主线与正文插图、文章封面两条图片处理路径" style="width:100%;"/></div><span class="image-caption">写作主线与正文插图、文章封面两条图片处理路径</span></div><p>只有一个主题时，先把要回答的问题和提纲确定下来；材料比较完整时，就围绕主要论点重组，保留有用的事实、代码和出处。标题、描述和正文结构定稿后，配图才有可靠的依据。</p><p>这里还涉及一个很具体的细节：封面程序目前只读取文章的标题和描述，不读取整篇正文。所以描述需要准确概括内容，写得太空，封面也很难贴合主题。</p><p>文章字段沿用 <code>scaffolds/post.md</code>。标签优先选择站内已有的 <code>tags</code>，已有文章则保留 <code>abbrlink</code>，避免改写内容时连访问地址一起变了。草稿也可以走写作和正文配图流程，封面留到转成正式文章后再处理。</p><h2 id="封面试过两条路，最后回到-API"><a href="#封面试过两条路，最后回到-API" class="headerlink" title="封面试过两条路，最后回到 API"></a>封面试过两条路，最后回到 API</h2><p>封面原本就是通过程序调用 OpenAI API 生成的。后来，我也试过让程序调用 Codex，再配合封面 skill 完成生图。</p><p>对比之后，我更喜欢 API 生成的图片，而且这次使用里，Codex 生成封面的速度明显慢了很多。对于脚本里的单篇处理和批量补图，我还是希望沿用 API 这条路径。</p><p>因此，现在的默认规则很明确：<strong>封面统一由现有程序调用 API 生成</strong>。Agent 帮我写文章时，也使用这个入口。Codex 分支继续保留，需要时显式选择。</p><p>手动操作只要运行：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run cover</span><br></pre></td></tr></table></figure><p>菜单里可以选择后端、生成预览，再上传回填；也可以直接执行一键流程。写作中的 Agent 使用对应的非交互入口，处理当前这篇文章。</p><details class="folding-tag" cyan><summary> 封面批量处理的配置 </summary>              <div class='content'>              <p>API 后端默认生成并发为 4，通过 <code>COVER_GENERATE_CONCURRENCY</code> 调整。</p><p>Codex 后端默认每组处理 6 篇文章，共用一次临时会话，组间串行。<code>COVER_CODEX_BATCH_SIZE</code> 支持 1–30；6 是默认值，可以根据需要调整。同组已有有效缓存的文章会跳过生图。</p><p>批量流程先保存本轮生成结果，再进入上传阶段。上传成功的文章正常回填和清理，失败项保留缓存供重试。</p>              </div>            </details><h2 id="正文插图先回答“这张图解释什么”"><a href="#正文插图先回答“这张图解释什么”" class="headerlink" title="正文插图先回答“这张图解释什么”"></a>正文插图先回答“这张图解释什么”</h2><p>正文插图更依赖文章内容。我使用宝玉的 <code>baoyu-article-illustrator</code> 来分析结构、选择配图位置，并确定类型、风格和配色<span class="hidden-anchor" id="referto_[1]"></span><sup class="reference"><a href="#referfrom_[1]">[1]</a></sup><span class="reference-bubble"><span class="reference-item"><span class="reference-literature">宝玉 skills</span><span class="reference-title">参考资料</span></span></span>。</p><p>比如这篇文章要讲清两条图片处理路径，以及它们如何汇入上传、校验和回填过程，流程图就很合适。其他内容可能需要展示组成关系、对比方案，或者解释某个难以用文字讲清的过程。</p><p>我给正文配图设了至少一张的下限，具体数量仍要看文章中有多少值得单独解释的信息点。配图方案需要说明位置、作用和数量依据，这样才能判断每张图是否有必要。</p><p>生成前会保存大纲和完整提示词。默认先使用当前 Agent 的原生生图能力；不可用时，按项目偏好进入 <code>baoyu-image-gen</code> 的 API 备用分支。只有走到备用分支，才需要读取它的 skill 和配置。</p><p>这也保留了边写边安排插图的便利：先根据正文想清楚画什么，再把完整提示词交给工具。API 备用分支的默认画质是 <code>normal</code>，文字较多的流程图或架构图单独使用 <code>2k</code>；原生工具则使用当前环境提供的参数。</p><p>配图方案通常先确认。想直接采用推荐方案时，可以在请求中写明“直接生成，不用确认”。</p><h2 id="把规则放回项目，入口保持简短"><a href="#把规则放回项目，入口保持简短" class="headerlink" title="把规则放回项目，入口保持简短"></a>把规则放回项目，入口保持简短</h2><p>流程确定后，我把写作入口放在 <code>.agents/skills/blog-writer/SKILL.md</code>，详细规则放进五份参考资料：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.agents/skills/blog-writer/</span><br><span class="line">├── SKILL.md</span><br><span class="line">└── references/</span><br><span class="line">    ├── writing.md</span><br><span class="line">    ├── components.md</span><br><span class="line">    ├── cover.md</span><br><span class="line">    ├── illustrations.md</span><br><span class="line">    └── validation.md</span><br></pre></td></tr></table></figure><div class="table-container"><table><thead><tr><th>参考资料</th><th>主要解决的问题</th></tr></thead><tbody><tr><td><code>writing.md</code></td><td>材料怎么组织，文风和文章字段如何处理</td></tr><tr><td><code>components.md</code></td><td>当前项目有哪些可用组件，应该怎样写</td></tr><tr><td><code>cover.md</code></td><td>什么时候处理封面，调用哪个入口</td></tr><tr><td><code>illustrations.md</code></td><td>正文配图怎样衔接宝玉 skill 和上传工具</td></tr><tr><td><code>validation.md</code></td><td>完成前需要检查哪些内容与页面效果</td></tr></tbody></table></div><p>这样划分，主要是为了让每项规则有明确的维护位置。文风集中在写作资料里，验证阶段引用它检查；模型和画质放在生图偏好中；上传、清理和重试的细节由工具文档维护。</p><p>读取也跟着任务走。只改正文，就先看写作资料；需要特殊排版，再看组件写法；进入正文配图时，再加载相应的 skill。详细参数留在实际使用的环节查阅，入口负责指明下一步去哪里。</p><h2 id="排版沿用博客已有的能力"><a href="#排版沿用博客已有的能力" class="headerlink" title="排版沿用博客已有的能力"></a>排版沿用博客已有的能力</h2><p>博客使用本地 Butterfly 主题和 <code>hexo-butterfly-tag-plugins-plus</code>。它们提供了提示块、标签页、折叠、题注和资料引用等能力，具体语法已经整理进项目参考资料。插件介绍中的示例也帮助我核对了这些组件的用途<span class="hidden-anchor" id="referto_[2]"></span><sup class="reference"><a href="#referfrom_[2]">[2]</a></sup><span class="reference-bubble"><span class="reference-item"><span class="reference-literature">Tag Plugins Plus 使用介绍</span><span class="reference-title">参考资料</span></span></span>。</p><p>我的选择原则是看内容需要：普通解释、步骤和对照关系，用 Markdown 就能表达；多个输入方式适合放进标签页；完整配置可以折叠；重要提醒用提示块；正文图片需要题注时使用 <code>image</code> 标签。</p><p>例如，本文把批量参数放在折叠块里，主线可以继续往下读，需要调整参数时再展开。文末的两种调用方式则放在标签页中，方便按手头的材料选择。</p><p>组件是否合适，最终还是要看页面。标签写对了，并不代表样式资源、窄屏布局和交互效果也都正常。</p><h2 id="图片上传后，还要确认读到的是新图"><a href="#图片上传后，还要确认读到的是新图" class="headerlink" title="图片上传后，还要确认读到的是新图"></a>图片上传后，还要确认读到的是新图</h2><p>封面与正文插图使用不同的生成路径，上传后的完成条件相同：CDN 返回的图片通过校验，文章中也已经回填对应链接。</p><p>这篇文章配图时，CDN 就曾在图片上传后短暂返回 404。工具按设定继续读取同一个地址，等到完整哈希一致后才回填。这个环节很有必要：OSS 上传成功，只能说明对象已经保存，还需要确认读者最终访问的地址能返回正确内容。</p><p>本地图片只作中转。封面保存在 <code>.cover-cache/</code>，正文插图的大纲、提示词、参考资料、原图和清单统一放在 <code>.illustrations-cache/&lt;abbrlink&gt;/</code>。OSS 对象按文章标识组织：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ding-BlogDemo/img/posts/covers/&lt;abbrlink&gt;.webp</span><br><span class="line">ding-BlogDemo/img/posts/illustrations/&lt;abbrlink&gt;/01.webp</span><br><span class="line">ding-BlogDemo/img/posts/illustrations/&lt;abbrlink&gt;/02.webp</span><br></pre></td></tr></table></figure><p>封面直接用 <code>abbrlink</code> 命名，正文插图在文章目录下按编号保存。替换部分插图时保留原编号，链接再附上内容版本参数，便于区分同名图片的更新。</p><p>工具读取最终 CDN 地址，核对完整 SHA-256，通过后才回填 <code>cover</code> 或正文图片链接。回填成功，再删除对应的本地图片和中间文件。上传、校验或回填失败时，缓存会留下来供重试；正文插图的清理过程如果中断，也有完成记录支持继续处理。</p><p>这些恢复细节交给工具后，写作时就可以把注意力放在文章和图片本身。</p><h2 id="最后回到页面上看一遍"><a href="#最后回到页面上看一遍" class="headerlink" title="最后回到页面上看一遍"></a>最后回到页面上看一遍</h2><p>正文和图片就绪后，我会先构建，再打开本地页面：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br><span class="line">npm run server</span><br></pre></td></tr></table></figure><p>草稿对应使用 <code>npm run build -- --draft</code> 和 <code>npm run server -- --draft</code>。</p><p>这一步会检查文字与代码是否完整、图片是否清楚、题注和参考资料是否正确，还要实际切换标签页、展开折叠块，并检查窄屏布局。像引用提示这样的细节，只有看过页面，才容易发现它有没有影响正文阅读。</p><div class="note info no-icon simple"><p>当前流程以本地验证完成为默认终点，线上发布和部署另行执行。写完后可以先预览，再决定什么时候发布。</p></div><h2 id="现在怎么调用"><a href="#现在怎么调用" class="headerlink" title="现在怎么调用"></a>现在怎么调用</h2><p>日常写作从 <code>blog-writer</code> 这一个入口开始，根据手头材料说明想写什么：</p><div class="tabs" id="writing-workflow-input"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#writing-workflow-input-1">只有一个想法</button></li><li class="tab"><button type="button" data-href="#writing-workflow-input-2">已有详细材料</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="writing-workflow-input-1"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用 $blog-writer 写一篇博客，介绍我这个项目的图片处理流程。</span><br><span class="line">先根据仓库实现组织文章，完成排版、正文插图、封面和本地验证。</span><br><span class="line">正文配图采用推荐方案，直接生成，不用确认。</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="writing-workflow-input-2"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">用 $blog-writer 把下面的材料整理成本项目博客。</span><br><span class="line">保留材料中的事实、代码和来源，按内容安排组件与正文插图。</span><br><span class="line">完成封面、图片上传回填和本地验证。</span><br><span class="line">正文配图采用推荐方案，直接生成，不用确认。</span><br><span class="line"></span><br><span class="line">材料：</span><br><span class="line">……</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><p>只想写提纲、先存草稿，或者暂时不配图，也可以直接说明范围。具体执行细节已经留在项目里，每次写作时，主要交代文章内容和这次要完成到哪一步就够了。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><div class="reference-source"><span class="hidden-anchor" id="referfrom_[1]"></span><a class="reference-anchor" href="#referto_[1]">[1]<div class="reference-anchor-up fa-solid fa-angles-up"></div></a><a class="reference-link" href="https://github.com/JimLiu/baoyu-skills">宝玉 skills</a></div><div class="reference-source"><span class="hidden-anchor" id="referfrom_[2]"></span><a class="reference-anchor" href="#referto_[2]">[2]<div class="reference-anchor-up fa-solid fa-angles-up"></div></a><a class="reference-link" href="https://akilar.top/posts/615e2dec/">Tag Plugins Plus 使用介绍</a></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Agent </tag>
+            
+            <tag> 自动化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode hot 100 刷题笔记</title>
       <link href="/posts/b6ddf346.html"/>
       <url>/posts/b6ddf346.html</url>
@@ -19,8 +48,6 @@
       
       
         <tags>
-            
-            <tag> LeetCode </tag>
             
             <tag> 算法 </tag>
             
@@ -80,11 +107,7 @@
             
             <tag> Agent </tag>
             
-            <tag> RAG </tag>
-            
             <tag> MCP </tag>
-            
-            <tag> Prompt </tag>
             
         </tags>
       
@@ -136,11 +159,9 @@
       
         <tags>
             
+            <tag> 部署 </tag>
+            
             <tag> CDN </tag>
-            
-            <tag> OSS </tag>
-            
-            <tag> 双源站 </tag>
             
         </tags>
       
@@ -219,8 +240,6 @@
       
         <tags>
             
-            <tag> 记录 </tag>
-            
             <tag> 游戏 </tag>
             
         </tags>
@@ -245,8 +264,6 @@
       
       
         <tags>
-            
-            <tag> qbittorrent </tag>
             
             <tag> RSS </tag>
             
@@ -273,9 +290,11 @@
       
         <tags>
             
-            <tag> 博客 </tag>
+            <tag> Hexo </tag>
             
-            <tag> 跨域 </tag>
+            <tag> 前端 </tag>
+            
+            <tag> CDN </tag>
             
         </tags>
       
@@ -299,8 +318,6 @@
       
       
         <tags>
-            
-            <tag> 2022年4月番 </tag>
             
             <tag> 动漫 </tag>
             
@@ -327,9 +344,9 @@
       
         <tags>
             
-            <tag> VSCODE </tag>
+            <tag> VS Code </tag>
             
-            <tag> MarkDown </tag>
+            <tag> Markdown </tag>
             
         </tags>
       
@@ -354,7 +371,7 @@
       
         <tags>
             
-            <tag> Web </tag>
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -431,9 +448,9 @@
       
         <tags>
             
-            <tag> Python </tag>
+            <tag> 自动化 </tag>
             
-            <tag> 脚本 </tag>
+            <tag> Python </tag>
             
         </tags>
       
@@ -458,9 +475,7 @@
       
         <tags>
             
-            <tag> 生活 </tag>
-            
-            <tag> 记录 </tag>
+            <tag> 随笔 </tag>
             
         </tags>
       
@@ -487,8 +502,6 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 树 </tag>
-            
         </tags>
       
     </entry>
@@ -514,8 +527,6 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 树 </tag>
-            
         </tags>
       
     </entry>
@@ -539,9 +550,7 @@
       
         <tags>
             
-            <tag> 队列 </tag>
-            
-            <tag> 栈 </tag>
+            <tag> 数据结构 </tag>
             
         </tags>
       
@@ -566,9 +575,7 @@
       
         <tags>
             
-            <tag> 卡塔兰数 </tag>
-            
-            <tag> 数学 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -595,8 +602,6 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 并查集 </tag>
-            
         </tags>
       
     </entry>
@@ -621,8 +626,6 @@
         <tags>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 队列 </tag>
             
         </tags>
       
@@ -649,8 +652,6 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 队列 </tag>
-            
         </tags>
       
     </entry>
@@ -676,8 +677,6 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 队列 </tag>
-            
         </tags>
       
     </entry>
@@ -701,11 +700,11 @@
       
         <tags>
             
-            <tag> 博客 </tag>
+            <tag> Hexo </tag>
+            
+            <tag> 自动化 </tag>
             
             <tag> Python </tag>
-            
-            <tag> 脚本 </tag>
             
         </tags>
       
@@ -730,11 +729,7 @@
       
         <tags>
             
-            <tag> Java Web </tag>
-            
-            <tag> Tomcat </tag>
-            
-            <tag> IDEA </tag>
+            <tag> Java </tag>
             
         </tags>
       
@@ -759,9 +754,7 @@
       
         <tags>
             
-            <tag> Java基础 </tag>
-            
-            <tag> 深拷贝 </tag>
+            <tag> Java </tag>
             
         </tags>
       
@@ -786,9 +779,7 @@
       
         <tags>
             
-            <tag> 博客 </tag>
-            
-            <tag> 踩坑 </tag>
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -813,11 +804,9 @@
       
         <tags>
             
-            <tag> 博客 </tag>
+            <tag> Hexo </tag>
             
-            <tag> seo </tag>
-            
-            <tag> 踩坑 </tag>
+            <tag> SEO </tag>
             
         </tags>
       
@@ -844,8 +833,6 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 栈 </tag>
-            
         </tags>
       
     </entry>
@@ -871,8 +858,6 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 链表 </tag>
-            
         </tags>
       
     </entry>
@@ -896,9 +881,9 @@
       
         <tags>
             
-            <tag> 博客 </tag>
+            <tag> Hexo </tag>
             
-            <tag> 转载 </tag>
+            <tag> 前端 </tag>
             
         </tags>
       
@@ -923,9 +908,9 @@
       
         <tags>
             
-            <tag> 博客 </tag>
+            <tag> Hexo </tag>
             
-            <tag> HTTPS </tag>
+            <tag> 部署 </tag>
             
         </tags>
       
@@ -950,9 +935,7 @@
       
         <tags>
             
-            <tag> VSCODE </tag>
-            
-            <tag> GitBash </tag>
+            <tag> VS Code </tag>
             
         </tags>
       
@@ -977,9 +960,9 @@
       
         <tags>
             
-            <tag> 博客 </tag>
+            <tag> Hexo </tag>
             
-            <tag> 域名 </tag>
+            <tag> 部署 </tag>
             
         </tags>
       
@@ -1004,9 +987,7 @@
       
         <tags>
             
-            <tag> 随笔 </tag>
-            
-            <tag> 刷题 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -1031,9 +1012,7 @@
       
         <tags>
             
-            <tag> Java基础 </tag>
-            
-            <tag> 随笔 </tag>
+            <tag> Java </tag>
             
         </tags>
       

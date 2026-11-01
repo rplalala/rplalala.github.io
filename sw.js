@@ -24,7 +24,7 @@ workbox.precaching.addPlugins([{
 // 注册成功后要立即缓存的资源列表
 // 具体缓存列表在gulpfile.js中配置，见下文
 // workbox.precaching.precacheAndRoute可以在service-worker在安装之前，就把对应文件预先缓存下来。
-workbox.precaching.precacheAndRoute([{"revision":"a9a964b8a5e91714c7354d37acb6587f","url":"./css/index.css"},{"revision":"e0ac8f26c757690a97c041a26f392ef7","url":"./404.html"},{"revision":"a903588957b2d5e510647f986a60ca03","url":"./index.html"}], {
+workbox.precaching.precacheAndRoute([{"revision":"4556e0e34e66dd2e248abf1fb8c328a2","url":"./css/index.css"},{"revision":"1cbf018f6bcbfc1b2ccc691fbabcaf58","url":"./404.html"},{"revision":"cc092d85b409dcf997d5eb4ca7ca5599","url":"./index.html"}], {
     directoryIndex: 'index.html'
 });
 
