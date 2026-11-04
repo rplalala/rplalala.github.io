@@ -13,7 +13,11 @@
     {
       "number": 3,
       "sha256": "bdc62ecc69c4ff063aea68b0d9b16da554abc6940d0a2a5daf0d2a4216194f98"
+    },
+    {
+      "number": 4,
+      "sha256": "3a6cd6aa9ca6a0670e57a9755b5e1dd47d9d9850dd0027ec92032e6af799a69f"
     }
   ],
-  "current": 3
+  "current": 4
 }
