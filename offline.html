@@ -1,0 +1,290 @@
+<!doctype html><html lang="zh-CN" data-pwa-offline><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="blog-shell" content="56a6c8738571fe795558b25fb209367ea74b216718f165118ad8b4989468260d"><title>页面暂时无法加载</title><style>body{max-width:36rem;margin:15vh auto;padding:1.5rem;font:18px/1.8 system-ui;color:#333;background:#fafafa}a{color:#1678bd}button{font:inherit;padding:.35rem 1rem;cursor:pointer}</style></head><body><h1>页面暂时无法加载</h1><div id="app-refresh" role="status" aria-live="polite"><p id="app-refresh-text">当前网络不可用，或网站内容正在更新。这个页面还没有可用的本地副本，请稍后重试。</p><button id="app-refresh-action" type="button">检查更新并重试</button></div><p><a href="/">返回首页</a></p><script>(() => {
+    if (!('serviceWorker' in navigator) || window.blogPwa) return;
+    const shell = document.querySelector('meta[name="blog-shell"]')?.content;
+    if (!/^[a-f0-9]{64}$/.test(shell || '')) return;
+
+    const offlinePage = document.documentElement.hasAttribute('data-pwa-offline');
+    const state = { registration: null, needsReload: false, accepting: false, activating: false,
+        pendingURL: offlinePage ? location.href : '', reloadURL: '', lastCheck: 0, lastRecoveryCheck: 0 };
+    let updateCheck;
+    let hadController = !!navigator.serviceWorker.controller;
+    let notice = '';
+    let noticeKind = '';
+    let noticeToast;
+    let activationTimer;
+
+    function showNotice(text = '本站内容有更新', action = '更新并刷新', kind = 'update') {
+        const banner = document.getElementById('app-refresh');
+        const toastVisible = noticeToast?.isConnected && window.Snackbar?.current === noticeToast && noticeToast.style.opacity !== '0';
+        // 其他功能共用 Snackbar；被替换或关闭的更新提示必须可以再次出现。
+        if (notice === text + action && noticeKind === kind && ((banner && !banner.hidden) || toastVisible)) return;
+        notice = text + action;
+        noticeKind = kind;
+        const config = typeof GLOBAL_CONFIG !== 'undefined' ? GLOBAL_CONFIG.Snackbar : window.GLOBAL_CONFIG?.Snackbar;
+        if (config && typeof window.Snackbar?.show === 'function') {
+            try {
+                window.Snackbar.show({
+                    text, actionText: action, duration: 600000,
+                    pos: config.position,
+                    backgroundColor: document.documentElement.dataset.theme === 'dark' ? config.bgDark : config.bgLight,
+                    onActionClick: () => acceptUpdate()
+                });
+                noticeToast = window.Snackbar.current;
+                if (banner) banner.hidden = true;
+                return;
+            } catch (_) { /* SDK 加载失败时继续使用固定横幅。 */ }
+        }
+        if (!banner) return;
+        document.getElementById('app-refresh-text').textContent = text;
+        document.getElementById('app-refresh-action').textContent = action;
+        banner.hidden = false;
+    }
+
+    function dismissNavigationNotice() {
+        if (noticeKind !== 'navigation') return;
+        const banner = document.getElementById('app-refresh');
+        if (banner) banner.hidden = true;
+        // Snackbar is shared with theme controls; close only our own failure.
+        if (noticeToast?.isConnected && window.Snackbar?.current === noticeToast &&
+            typeof window.Snackbar.close === 'function') window.Snackbar.close();
+        noticeToast = undefined;
+        notice = '';
+        noticeKind = '';
+    }
+
+    function navigate(target, replace = false) {
+        const url = new URL(target, location.href);
+        // History has already changed the URL before popstate. A fragment-only
+        // location.replace would keep the old document and its scripts alive.
+        if (url.origin === location.origin && url.pathname === location.pathname && url.search === location.search) {
+            if (url.hash !== location.hash) history.replaceState(history.state, '', url.href);
+            location.reload();
+        } else if (replace) location.replace(url.href);
+        else location.assign(url.href);
+    }
+
+    function withDeadline(promise, timeout) {
+        let timer;
+        return Promise.race([
+            promise,
+            new Promise(resolve => { timer = setTimeout(() => resolve(false), timeout); })
+        ]).finally(() => clearTimeout(timer));
+    }
+
+    async function acceptUpdate() {
+        if (state.accepting) return;
+        const target = state.pendingURL || location.href;
+        state.accepting = true;
+        showNotice('正在准备新版页面…', '请稍候');
+        try {
+            const registration = state.registration;
+            // Prefer a newer available release, but a ready worker must remain
+            // usable when the update endpoint is slow.
+            const checking = checkUpdates(true);
+            const checked = await (registration?.waiting || state.needsReload ? withDeadline(checking, 2000) : checking);
+            if (!checked && !registration?.waiting && !state.needsReload) throw new Error('Update check timed out');
+            const waiting = registration?.waiting;
+            if (!waiting && !state.needsReload && !state.pendingURL) {
+                state.accepting = false;
+                showNotice('暂无可用更新，请稍后重试', '检查更新');
+                return;
+            }
+            const worker = waiting || navigator.serviceWorker.controller;
+            if (!worker) { navigate(target); return; }
+            const result = await messageWorker(worker, { type: 'PREPARE_BLOG_PAGE', url: target }, 12000);
+            if (!result.ready || (waiting ? registration.waiting !== worker : navigator.serviceWorker.controller !== worker)) {
+                throw new Error('Page not ready');
+            }
+            if (!waiting) { navigate(target); return; }
+            state.reloadURL = target;
+            state.activating = true;
+            waiting.postMessage({ type: 'SKIP_WAITING' });
+        } catch (_) {
+            state.accepting = false;
+            state.activating = false;
+            showNotice('新版页面尚未就绪，请稍后重试', '重试更新');
+            return;
+        }
+        activationTimer = setTimeout(() => {
+            state.accepting = false;
+            state.activating = false;
+            showNotice('更新尚未完成，请稍后重试', '重试更新');
+        }, 15000);
+    }
+
+    async function checkUpdates(force = false) {
+        const registration = state.registration;
+        if (!registration || !navigator.onLine) return true;
+        if (!state.accepting) {
+            if (registration.waiting) showNotice();
+            else if (state.needsReload) showNotice('网站已更新，请刷新后继续浏览', '刷新页面');
+            else if (state.pendingURL) showNotice('页面暂时无法加载，请稍后重试', '重试', 'navigation');
+        }
+        if (updateCheck) return updateCheck;
+        const now = Date.now();
+        if (!force && now - state.lastCheck < 10 * 60 * 1000) return true;
+        state.lastCheck = now;
+        const checking = withDeadline(Promise.resolve().then(() => registration.update())
+            .then(() => waitForInstall(registration.installing)).then(() => true, () => false), 12000);
+        updateCheck = checking;
+        try { return await checking; } finally { if (updateCheck === checking) updateCheck = null; }
+    }
+
+    function waitForInstall(worker) {
+        if (!worker || ['installed', 'activated', 'redundant'].includes(worker.state)) return Promise.resolve();
+        return new Promise(resolve => {
+            const finish = () => {
+                clearTimeout(timer);
+                worker.removeEventListener('statechange', changed);
+                resolve();
+            };
+            const changed = () => { if (['installed', 'activated', 'redundant'].includes(worker.state)) finish(); };
+            const timer = setTimeout(finish, 12000);
+            worker.addEventListener('statechange', changed);
+            changed();
+        });
+    }
+
+    function messageWorker(worker, data, timeout = 2000) {
+        return new Promise((resolve, reject) => {
+            const channel = new MessageChannel();
+            const timer = setTimeout(() => { channel.port1.close(); reject(new Error('Worker response timed out')); }, timeout);
+            channel.port1.onmessage = event => {
+                clearTimeout(timer);
+                channel.port1.close();
+                resolve(event.data);
+            };
+            try { worker.postMessage(data, [channel.port2]); }
+            catch (error) { clearTimeout(timer); channel.port1.close(); reject(error); }
+        });
+    }
+
+    function recoverUpdate() {
+        if (Date.now() - state.lastRecoveryCheck < 30000) return;
+        state.lastRecoveryCheck = Date.now();
+        checkUpdates(true);
+    }
+
+    function inspectController() {
+        const controller = navigator.serviceWorker.controller;
+        if (!controller) return;
+        messageWorker(controller, { type: 'GET_BLOG_VERSION' }).then(data => {
+            if (data?.shell && data.shell !== shell) {
+                state.needsReload = true;
+                showNotice('网站已更新，请刷新后继续浏览', '刷新页面');
+            }
+        }).catch(() => {});
+    }
+
+    function attachPjax(instance) {
+        if (!instance || instance.__blogPwaAttached) return;
+        instance.__blogPwaAttached = true;
+        const originalLoad = instance.loadUrl;
+        const originalRequest = instance.doRequest;
+        const originalResponse = instance.handleResponse;
+        instance.loadUrl = function (href, options) {
+            if (state.needsReload || state.accepting) {
+                // popstate 已改变地址；完整导航能保持正文与历史记录对应。
+                if (options?.history === false) { navigate(href, true); return; }
+                if (state.accepting) return;
+                state.pendingURL = new URL(href, location.href).href;
+                showNotice('网站已更新，请刷新后继续浏览', '刷新后继续');
+                return;
+            }
+            return originalLoad.call(this, href, options);
+        };
+        instance.doRequest = function (href, options, callback) {
+            const requestOptions = options.requestOptions || {};
+            // POST、表单序列化保留 PJAX 原实现；响应仍经过下面的版本检查。
+            if ((requestOptions.requestMethod || 'GET').toUpperCase() !== 'GET' ||
+                requestOptions.requestParams || requestOptions.formData || options.cacheBust) {
+                return originalRequest.call(this, href, options, callback);
+            }
+            const request = new XMLHttpRequest();
+            request.open('GET', href, true);
+            request.timeout = options.timeout || 0;
+            request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            request.setRequestHeader('X-PJAX', 'true');
+            request.setRequestHeader('X-PJAX-Selectors', JSON.stringify(options.selectors));
+            request.setRequestHeader('X-Blog-Shell', shell);
+            request.onreadystatechange = () => {
+                if (request.readyState === 4 && request.status !== 0) {
+                    callback(request.status === 200 ? request.responseText : null, request, href, options);
+                }
+            };
+            request.onerror = request.ontimeout = () => callback(null, request, href, options);
+            request.send();
+            return request;
+        };
+        instance.handleResponse = function (text, request, href, options) {
+            const responseShell = request.getResponseHeader('X-Blog-Shell') || (text &&
+                new DOMParser().parseFromString(text, 'text/html').querySelector('meta[name="blog-shell"]')?.content);
+            if (request.status === 409 || (responseShell && responseShell !== shell)) {
+                if (options?.history === false) { navigate(href, true); return; }
+                state.needsReload = true;
+                state.pendingURL = new URL(href, location.href).href;
+                showNotice('网站已更新，请刷新后继续浏览', '刷新后继续');
+                return originalResponse.call(this, false, request, href, options);
+            }
+            if (!text) {
+                state.pendingURL = new URL(href, location.href).href;
+                showNotice('页面暂时无法加载，请稍后重试', '重试', 'navigation');
+                recoverUpdate();
+                if (options?.history === false) { navigate(href, true); return; }
+                return originalResponse.call(this, false, request, href, options);
+            }
+            // 成功后清掉上一次失败的目标，更新按钮始终刷新当前实际所在的页面。
+            state.pendingURL = '';
+            return originalResponse.call(this, text, request, href, options);
+        };
+    }
+
+    window.blogPwa = { attachPjax, checkUpdates, acceptUpdate };
+    document.getElementById('app-refresh-action')?.addEventListener('click', acceptUpdate);
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        clearTimeout(activationTimer);
+        if (state.activating) { navigate(state.reloadURL); return; }
+        if (hadController) {
+            state.needsReload = true;
+            showNotice('网站已更新，请刷新后继续浏览', '刷新页面');
+        }
+        hadController = true;
+        inspectController();
+    });
+    navigator.serviceWorker.addEventListener('message', event => {
+        if (event.data?.type === 'BLOG_PAGE_UNAVAILABLE') recoverUpdate();
+    });
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) { inspectController(); checkUpdates(); }
+    });
+    document.addEventListener('pjax:complete', () => checkUpdates());
+    document.addEventListener('pjax:success', dismissNavigationNotice);
+    window.addEventListener('pageshow', () => { inspectController(); checkUpdates(); });
+    window.addEventListener('online', () => checkUpdates());
+
+    async function register() {
+        try {
+            const registration = offlinePage ? await navigator.serviceWorker.getRegistration() :
+                await navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' });
+            if (!registration) return;
+            state.registration = registration;
+            state.lastCheck = offlinePage ? 0 : Date.now();
+            if (registration.waiting) showNotice();
+            registration.addEventListener('updatefound', () => {
+                const installing = registration.installing;
+                if (!installing) return;
+                installing.addEventListener('statechange', () => {
+                    if (installing.state === 'installed' && navigator.serviceWorker.controller) showNotice();
+                    if (installing.state === 'redundant' && navigator.serviceWorker.controller) {
+                        showNotice('更新暂时不可用，可稍后重试', '检查更新');
+                    }
+                });
+            });
+            inspectController();
+            if (offlinePage) recoverUpdate();
+        } catch (_) { /* 注册失败时保留普通网页和 PJAX。 */ }
+    }
+    if (document.readyState === 'complete') register();
+    else window.addEventListener('load', register, { once: true });
+})();
+</script></body></html>

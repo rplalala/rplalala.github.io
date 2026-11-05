@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "legacySha256": "f4697a6be85451db0d1f0e1e10fea26412d809646231319466a7d8afca7f97d1",
+  "versions": [
+    {
+      "number": 1,
+      "sha256": "f4697a6be85451db0d1f0e1e10fea26412d809646231319466a7d8afca7f97d1"
+    },
+    {
+      "number": 2,
+      "sha256": "df5b72b6ca36ff70ca8a98784b83747f2ffc2cc148b53333e3ef6b2fb324407e"
+    },
+    {
+      "number": 3,
+      "sha256": "bdc62ecc69c4ff063aea68b0d9b16da554abc6940d0a2a5daf0d2a4216194f98"
+    },
+    {
+      "number": 4,
+      "sha256": "3a6cd6aa9ca6a0670e57a9755b5e1dd47d9d9850dd0027ec92032e6af799a69f"
+    }
+  ],
+  "current": 4
+}
