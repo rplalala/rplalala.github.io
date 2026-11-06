@@ -407,7 +407,7 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/link/index.html</loc>
+    <loc>https://dingzh.cc/manifest.json</loc>
     
     <lastmod>2026-10-31</lastmod>
     
@@ -416,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/manifest.json</loc>
+    <loc>https://dingzh.cc/link/index.html</loc>
     
     <lastmod>2026-10-31</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/categories/index.html</loc>
+    <loc>https://dingzh.cc/gallery/index.html</loc>
     
     <lastmod>2026-10-31</lastmod>
     
@@ -452,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/gallery/index.html</loc>
+    <loc>https://dingzh.cc/categories/index.html</loc>
     
     <lastmod>2026-10-31</lastmod>
     
@@ -470,7 +470,7 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/gallery/cover/index.html</loc>
+    <loc>https://dingzh.cc/gallery/mainbg/index.html</loc>
     
     <lastmod>2026-10-31</lastmod>
     
@@ -479,7 +479,7 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/gallery/mainbg/index.html</loc>
+    <loc>https://dingzh.cc/gallery/cover/index.html</loc>
     
     <lastmod>2026-10-31</lastmod>
     
@@ -522,14 +522,14 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/Java/</loc>
+    <loc>https://dingzh.cc/tags/Hexo/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/AI/</loc>
+    <loc>https://dingzh.cc/tags/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -550,7 +550,21 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/%E9%83%A8%E7%BD%B2/</loc>
+    <loc>https://dingzh.cc/tags/Java/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzh.cc/tags/AI/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzh.cc/tags/Agent/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -565,20 +579,6 @@
   
   <url>
     <loc>https://dingzh.cc/tags/CDN/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzh.cc/tags/Hexo/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzh.cc/tags/Agent/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -620,20 +620,6 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/SEO/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://dingzh.cc/tags/Markdown/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://dingzh.cc/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -648,7 +634,14 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://dingzh.cc/tags/Markdown/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzh.cc/tags/SEO/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -656,6 +649,13 @@
   
   <url>
     <loc>https://dingzh.cc/tags/%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://dingzh.cc/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -692,7 +692,7 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/categories/AI/</loc>
+    <loc>https://dingzh.cc/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -706,7 +706,7 @@
   </url>
   
   <url>
-    <loc>https://dingzh.cc/categories/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://dingzh.cc/categories/AI/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
